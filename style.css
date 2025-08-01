@@ -427,40 +427,27 @@ a {
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 24px;
+  font-size: 1.5vw;
+  text-align: center;
   font-weight: 700;
   color: white;
   cursor: pointer;
-  transition: background 3s, box-shadow 1s;;
+  transition: background 3s, box-shadow 1s;
   opacity: 0.8;
+  background-color: rgb(0 0 0 / 30%);
 }
+
 
 
 
 .category-box:hover {
-    background-color: #333;
-    box-shadow: rgb(0, 224, 143) 0px 0px 30px 0px;
+  box-shadow: 0px 0px 20px 0px #007e5080;
 }
-/*fix this  later*/
-.category-box.yellow { background: linear-gradient(135deg, #fbbf24, #f59e0b); }
-.category-box.blue { background: linear-gradient(135deg, #3b82f6, #1d4ed8); }
-.category-box.pink { background: linear-gradient(135deg, #ec4899, #be185d); }
-.category-box.green { background: linear-gradient(135deg, #10b981, #047857); }
-.category-box.cyan { background: linear-gradient(135deg, #06b6d4, #0891b2); }
-.category-box.orange { background: linear-gradient(135deg, #f97316, #ea580c); }
-.category-box.purple { background: linear-gradient(135deg, #a855f7, #7c3aed); }
-.category-box.gray { background: linear-gradient(135deg, #6b7280, #4b5563); }
-.category-box.red { background: linear-gradient(135deg, #ef4444, #dc2626); }
-.category-box.teal { background: linear-gradient(135deg, #14b8a6, #0d9488); }
-.category-box.indigo { background: linear-gradient(135deg, #6366f1, #4f46e5); }
-.category-box.amber { background: linear-gradient(135deg, #f59e0b, #d97706); }
-.category-box.rose { background: linear-gradient(135deg, #f43f5e, #e11d48); }
-.category-box.emerald { background: linear-gradient(135deg, #10b981, #059669); }
-.category-box.sky { background: linear-gradient(135deg, #0ea5e9, #0284c7); }
-.category-box.slate { background: linear-gradient(135deg, #64748b, #475569); }
 
-
-
+.category-box.disabled:hover {
+  box-shadow: none;
+  cursor: default;
+}
 
 
 /* Footer */
@@ -825,4 +812,10 @@ a {
     backdrop-filter: blur(10px);
     color: white;
     min-width: 280px;
+}
+
+.shadow{
+    background: radial-gradient(circle, rgba(255, 255, 255, 0) 0%, rgba(0, 0, 0, 1) 100%);
+    z-index: 10 !important;
+    position: relative;
 }
