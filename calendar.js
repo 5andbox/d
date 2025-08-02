@@ -2,12 +2,22 @@ function updateUTCClock() {
   const now = new Date();
   const hh = String(now.getUTCHours()).padStart(2, '0');
   const mm = String(now.getUTCMinutes()).padStart(2, '0');
-  const ss = String(now.getUTCSeconds()).padStart(2, '0');
-  document.getElementById('utcClock').textContent = ` ${hh}:${mm}:${ss} UTC 👆`;
+  document.getElementById('utcClock').textContent = ` ${hh}:${mm} UTC 👆`;
 }
 
-updateUTCClock();
-setInterval(updateUTCClock, 1000);
+function startClockSync() {
+  updateUTCClock();
+
+  const now = new Date();
+  const msUntilNextMinute = (60 - now.getUTCSeconds()) * 1000 - now.getUTCMilliseconds();
+
+  setTimeout(() => {
+    updateUTCClock();
+    setInterval(updateUTCClock, 60000); // Update every minute
+  }, msUntilNextMinute);
+}
+
+startClockSync();
 
 const monthYear = document.getElementById('month-year');
 const calendarDates = document.getElementById('calendar-dates');

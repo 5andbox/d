@@ -338,12 +338,12 @@ a {
   margin-bottom: 16px;
 }
 
-.tech-badges {
+.badges {
   display: flex;
   gap: 8px;
 }
 
-.tech-badge {
+.badge {
   background: rgb(255 255 255 / 20%);
   color: #ffffff;
   padding: 4px 8px;
@@ -421,6 +421,7 @@ a {
 }
 
 .category-box {
+  position: relative;
   width: 120px;
   height: 120px;
   border-radius: 12px;
@@ -435,9 +436,99 @@ a {
   transition: background 3s, box-shadow 1s;
   opacity: 0.8;
   background-color: rgb(0 0 0 / 30%);
+  overflow: hidden;
 }
 
+.category-box::before {
+  position: absolute;
+  font-size: 6rem;
+  opacity: 0.2;
+  z-index: 0;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+  content: "";
+  filter: grayscale(100%) brightness(1) contrast(150%);
 
+}
+.near-ai::before {
+  content: "🤖";
+  transform: translate(-50%, -50%) rotate(20deg);
+}
+
+.quiz-night::before {
+  content: "❓";
+  transform: translate(-50%, -50%) rotate(-20deg);
+}
+
+.townhall::before {
+  content: "🏠";
+}
+.house-of-stake::before {
+  content: "🏛️";
+}
+.yapper::before {
+  content: "🐦";
+  transform: translate(-50%, -50%) rotate(-20deg);
+}
+.fitness-league::before {
+  content: "🏃";
+  transform: translate(-50%, -50%) rotate(-20deg);
+}
+.poker::before {
+  content: "🃏";
+  transform: translate(-50%, -50%) rotate(-20deg);
+}
+.intents::before {
+  content: "🎯";
+  transform: translate(-50%, -50%) rotate(-20deg);
+}
+.news::before {
+  content: "📰";
+  transform: translate(-50%, -50%) rotate(-20deg);
+}
+.airdrop::before {
+  content: "🎁";
+  transform: translate(-50%, -50%) rotate(-20deg);
+}
+.timeline::before {
+  content: "📅";
+  transform: translate(-50%, -50%) rotate(20deg);
+}
+.guides::before {
+  content: "🧭";
+  transform: translate(-50%, -50%) rotate(-20deg);
+}
+
+.category-box > * {
+  z-index: 1;
+  position: relative;
+}
+
+.airdrop:hover::before,.news:hover::before,.poker:hover::before,.yapper:hover::before {
+  animation: rotate-1 .5s linear infinite;
+}
+.guides:hover::before,.house-of-stake:hover::before,.near-ai:hover::before,.timeline:hover::before {
+  animation: rotate-1 .5s linear infinite;
+}
+
+@keyframes rotate-1 {
+  0%, 100% {
+    transform: translate(-50%, -50%) rotate(-20deg);
+  }
+  50% {
+    transform: translate(-50%, -50%) rotate(20deg);
+  }
+}
+@keyframes rotate-2 {
+  0%, 100% {
+    transform: translate(-50%, -50%) rotate(20deg);
+  }
+  50% {
+    transform: translate(-50%, -50%) rotate(-20deg);
+  }
+}
 
 
 .category-box:hover {
@@ -815,7 +906,7 @@ a {
 }
 
 .shadow{
-    background: radial-gradient(circle, rgba(255, 255, 255, 0) 0%, rgba(0, 0, 0, 1) 100%);
+    background: radial-gradient(circle, rgb(0 0 0 / 50%) 0%, rgb(0 0 0) 100%);
     z-index: 10 !important;
     position: relative;
 }
